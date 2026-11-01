@@ -1,0 +1,6 @@
+{
+  "name": "Calculadora Gráfica Python Tkinter",
+  "description": "Calculadora gráfica moderna, modular e robusta desenvolvida em Python com Tkinter nativo, design escuro ergonômico, motor defensivo e simulador web interativo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
