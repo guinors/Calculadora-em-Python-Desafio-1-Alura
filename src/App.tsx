@@ -4,6 +4,7 @@ import { PythonCodeViewer } from './components/PythonCodeViewer';
 import { ArchitectureAndPalette } from './components/ArchitectureAndPalette';
 import { UnitTestsRunner } from './components/UnitTestsRunner';
 import { PYTHON_SOURCE_CODE } from './pythonCode';
+import { ReadmeViewer } from './components/ReadmeViewer';
 import {
   Calculator,
   Code2,
@@ -16,10 +17,11 @@ import {
   Layers,
   Sparkles,
   ShieldCheck,
+  BookOpen,
 } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'simulator' | 'code' | 'architecture' | 'tests'>('simulator');
+  const [activeTab, setActiveTab] = useState<'simulator' | 'code' | 'architecture' | 'tests' | 'readme'>('simulator');
   const [copied, setCopied] = useState(false);
 
   const handleCopyCode = async () => {
@@ -158,6 +160,18 @@ export default function App() {
             <CheckCircle2 className="w-3.5 h-3.5" />
             <span>Bateria de Testes (Unit Tests)</span>
           </button>
+
+          <button
+            onClick={() => setActiveTab('readme')}
+            className={`flex items-center gap-2 px-3.5 py-2 text-xs font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${
+              activeTab === 'readme'
+                ? 'border-blue-500 text-blue-400'
+                : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+            <span>README / Documentação</span>
+          </button>
         </div>
       </header>
 
@@ -167,6 +181,7 @@ export default function App() {
         {activeTab === 'code' && <PythonCodeViewer />}
         {activeTab === 'architecture' && <ArchitectureAndPalette />}
         {activeTab === 'tests' && <UnitTestsRunner />}
+        {activeTab === 'readme' && <ReadmeViewer />}
       </main>
 
       {/* Rodapé com Especificações de Qualidade */}
